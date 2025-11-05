@@ -1,0 +1,30 @@
+---
+
+hw: vmx
+location: LAB
+position: MPLS-PE
+lo0v4: 150.0.0.1
+lo0v6: 2001:db8::1
+iso_addr: 49.0001.0150.0001.0001.0001.00
+isis_overlaod: False
+device_lags: 2
+
+core-interfaces:
+  - name: ge-0/0/0
+    description: "PE2-LND;ge-0/0/0"
+    ipv4_address: 10.100.10.0/31
+    ipv6_address: 2001:abcd:10a::a/64
+    mtu: 9192
+    vlan-id: 100
+    filter_input_v4: ipv4-input-filter
+    lldp_enabled: True
+    link_protection: "admin-group include-any CORE-0"
+  - name: ge-0/0/1
+    description: "P1-LND;ge-0/0/1"
+    ipv4_address: 10.100.10.2/31
+    ipv6_address: 2001:abcd:10b:a/64
+    mtu: 9192
+    vlan-id: 100
+    filter_input_v4: ipv4-input-filter
+    lldp_enabled: True
+    link_protection: "admin-group include-any CORE-0"
