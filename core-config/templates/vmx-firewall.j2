@@ -1,0 +1,61 @@
+set firewall family inet filter re-protect term ntp from prefix-list mgmt-network
+set firewall family inet filter re-protect term ntp from protocol udp
+set firewall family inet filter re-protect term ntp from port ntp
+set firewall family inet filter re-protect term ntp then accept
+set firewall family inet filter re-protect term bfd from protocol udp
+set firewall family inet filter re-protect term bfd from port 3784
+set firewall family inet filter re-protect term bfd from port 3785
+set firewall family inet filter re-protect term bfd then accept
+set firewall family inet filter re-protect term multihop-bfd from protocol udp
+set firewall family inet filter re-protect term multihop-bfd from port 4784
+set firewall family inet filter re-protect term multihop-bfd then accept
+set firewall family inet filter re-protect term bgp from protocol tcp
+set firewall family inet filter re-protect term bgp from port bgp
+set firewall family inet filter re-protect term bgp then accept
+set firewall family inet filter re-protect term ssh from protocol tcp
+set firewall family inet filter re-protect term ssh from destination-port ssh
+set firewall family inet filter re-protect term ssh then accept
+set firewall family inet filter re-protect term radius from source-prefix-list mgmt-network
+set firewall family inet filter re-protect term radius from protocol udp
+set firewall family inet filter re-protect term radius from source-port radius
+set firewall family inet filter re-protect term radius then accept
+set firewall family inet filter re-protect term dns from source-prefix-list mgmt-network
+set firewall family inet filter re-protect term dns from protocol udp
+set firewall family inet filter re-protect term dns from source-port domain
+set firewall family inet filter re-protect term dns then accept
+set firewall family inet filter re-protect term ftp from source-prefix-list mgmt-network
+set firewall family inet filter re-protect term ftp from protocol tcp
+set firewall family inet filter re-protect term ftp from port ftp
+set firewall family inet filter re-protect term ftp from port ftp-data
+set firewall family inet filter re-protect term ftp then accept
+set firewall family inet filter re-protect term ldp from protocol udp
+set firewall family inet filter re-protect term ldp from protocol tcp
+set firewall family inet filter re-protect term ldp from port ldp
+set firewall family inet filter re-protect term ldp then accept
+set firewall family inet filter re-protect term snmp from source-prefix-list mgmt-network
+set firewall family inet filter re-protect term snmp from protocol udp
+set firewall family inet filter re-protect term snmp from destination-port snmp
+set firewall family inet filter re-protect term snmp then accept
+set firewall family inet filter re-protect term ospf from protocol ospf
+set firewall family inet filter re-protect term ospf then accept
+set firewall family inet filter re-protect term igmp from protocol igmp
+set firewall family inet filter re-protect term igmp then accept
+set firewall family inet filter re-protect term rsvp from protocol rsvp
+set firewall family inet filter re-protect term rsvp then accept
+set firewall family inet filter re-protect term pim from protocol pim
+set firewall family inet filter re-protect term pim then accept
+set firewall family inet filter re-protect term icmp from protocol icmp
+set firewall family inet filter re-protect term icmp from icmp-type echo-request
+set firewall family inet filter re-protect term icmp from icmp-type echo-reply
+set firewall family inet filter re-protect term icmp then accept
+set firewall family inet filter re-protect term traceroute from protocol udp
+set firewall family inet filter re-protect term traceroute from destination-port 33434-33534
+set firewall family inet filter re-protect term traceroute then accept
+set firewall family inet filter re-protect term traceroute-reply from protocol icmp
+set firewall family inet filter re-protect term traceroute-reply from icmp-type time-exceeded
+set firewall family inet filter re-protect term traceroute-reply from icmp-type unreachable
+set firewall family inet filter re-protect term traceroute-reply then accept
+set firewall family inet filter re-protect term msdp from protocol tcp
+set firewall family inet filter re-protect term msdp from port msdp
+set firewall family inet filter re-protect term drop then count re-protect-drop-counter
+set firewall family inet filter re-protect term drop then discard
