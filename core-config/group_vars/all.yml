@@ -1,1 +1,18 @@
+---
 
+ntp_server: 192.168.100.144
+
+syslog_server:
+
+snmpv2_ro_community: public
+
+snmp_servers:
+
+tacacs_server:
+
+email_contact:
+
+name_server:
+
+prefixes:
+  - 1.1.1.0/24
