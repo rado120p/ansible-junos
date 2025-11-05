@@ -2,17 +2,17 @@
 
 ntp_server: 192.168.100.144
 
-syslog_server:
+syslog_server: 192.168.100.144
 
 snmpv2_ro_community: public
 
-snmp_servers:
+tacacs_server: 192.168.100.144
 
-tacacs_server:
+email_contact: rado.mohyla@gmail.com
 
-email_contact:
+name_server: 192.168.100.144
 
-name_server:
-
-prefixes:
-  - 1.1.1.0/24
+clab-mgmt-network:
+  - 172.20.20.0/24
+lan-mgmt-network:
+  - 192.168.100.0/24
