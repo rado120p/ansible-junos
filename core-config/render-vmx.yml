@@ -1,1 +1,14 @@
+---
+- name: Render basic VMX configuration
+  hosts: VMX
+  connection: netconf
 
+tasks:
+  - name: Render VMX CFG
+    template:
+      src: "{{ playbook_dir }}/templates/vmx-template-full.j2"
+      dst: "{{ playbook_dir }}/render/{{ inventory_hostname }}_basic.conf"
+  - name: Render Qos CFG
+    template:
+      src: "{{ playbook_dir }}/templates/vmx-template-qos.j2"
+      dst: "{{ playbook_dir }}/render/{{ inventory_hostname }}_qos.conf"
