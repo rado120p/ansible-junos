@@ -1,0 +1,4 @@
+set system name-server {{ name_server[0] }}
+set system name-server {{ name_server[1] }}
+
+set system tacplus-server {{ tacacs_server }} source-address {{ ansible_host }}
