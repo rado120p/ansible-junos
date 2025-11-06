@@ -9,4 +9,4 @@ set protocols mpls admin-groups INTER-PLANE 1
   {% else %}
   set protocols mpls interface {{ interface.name }}.{{ interface.vlan_id }}
   {% endif %}
-{%- endfor %}
+{% endfor -%}
