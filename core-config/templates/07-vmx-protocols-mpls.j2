@@ -1,12 +1,12 @@
 set protocols mpls apply-groups lsp-defaults
 set protocols mpls admin-groups CORE-0 0
 set protocols mpls admin-groups INTER-PLANE 1
-{%- for interface in core_interfaces %}
-  {%- if interface.admin_groups is defined %}
-    {%- for group in interface.admin_groups %}
+{%  for interface in core_interfaces %}
+{%    if interface.admin_groups is defined %}
+{%      for group in interface.admin_groups %}
 set protocols mpls interface {{ interface.name }}.{{ interface.vlan_id }} admin-group {{ group }}
-    {%- endfor %}
-  {% else %}
+{%      endfor %}
+{%    else %}
 set protocols mpls interface {{ interface.name }}.{{ interface.vlan_id }}
-  {% endif %}
+{%    endif %}
 {% endfor %}
