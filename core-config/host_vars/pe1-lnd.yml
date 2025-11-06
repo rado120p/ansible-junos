@@ -27,9 +27,7 @@ core_interfaces:
     lldp_enabled: True
     link_protection: "admin-group include-any CORE-0"
     igp_metric: 500
-    admin_groups:
-      - "CORE-0"
-      - "INTER-PLANE"
+    admin_groups: ["CORE-0", "INTER-PLANE"]
   - name: ge-0/0/1
     description: "P1-LND;ge-0/0/1"
     ipv4_address: "10.100.10.2/31"
@@ -40,8 +38,7 @@ core_interfaces:
     lldp_enabled: True
     link_protection: "admin-group include-any CORE-0"
     igp_metric: 1000
-    admin_groups:
-      - "CORE-0"
+    admin_groups: ["CORE-0"]
   - name: ge-0/0/2
     description: "P2-LND;ge-0/0/1"
     ipv4_address: "10.100.10.4/31"
