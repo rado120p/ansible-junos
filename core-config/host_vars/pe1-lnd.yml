@@ -8,10 +8,14 @@ lo0v6: 2001:db8::1
 iso_addr: 49.0001.0150.0001.0001.0001.00
 isis_overlaod: False
 device_lags: 2
-ibgp_peers: [
-  172.20.20.21,
-  172.20.20.22
-]
+ibgp_peers:
+  - name: RR1-LND
+    ipv4_address: 150.0.0.253
+    ipv6_address: 2001:db8::ffff
+  - name: RR2-LND
+    ipv4_address: 150.0.0.253
+    ipv6_address: 2001:db8::ffff
+
 core-interfaces:
   - name: ge-0/0/0
     description: "PE2-LND;ge-0/0/0"
@@ -22,7 +26,23 @@ core-interfaces:
     filter_input_v4: ipv4-input-filter
     lldp_enabled: True
     link_protection: "admin-group include-any CORE-0"
+    igp_metric: 500
+    - admin_groups:
+      g1: CORE-0
+      g2: INTER-PLANE
   - name: ge-0/0/1
+    description: "P1-LND;ge-0/0/1"
+    ipv4_address: 10.100.10.2/31
+    ipv6_address: 2001:abcd:10b:a/64
+    mtu: 9192
+    vlan-id: 100
+    filter_input_v4: ipv4-input-filter
+    lldp_enabled: True
+    link_protection: "admin-group include-any CORE-0"
+    igp_metric: 1000
+    - admin_groups:
+      g1: CORE-0
+  - name: ge-0/0/2
     description: "P1-LND;ge-0/0/1"
     ipv4_address: 10.100.10.2/31
     ipv6_address: 2001:abcd:10b:a/64
