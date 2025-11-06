@@ -1,6 +1,6 @@
 ---
 - name: Render VMX configs for all hosts
-  hosts: VMX
+  hosts: vmx
   connection: local
   gather_facts: false
 
