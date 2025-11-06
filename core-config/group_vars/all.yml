@@ -1,15 +1,15 @@
 ---
 
-ntp_server: 192.168.100.144
-syslog_server: 192.168.100.144
-name_server: 192.168.100.144
-tacacs_server: 192.168.100.144
-archive_server: 192.168.100.144
+ntp_server: "192.168.100.144"
+syslog_server: "192.168.100.144"
+name_server: "192.168.100.144"
+tacacs_server: "192.168.100.144"
+archive_server: "192.168.100.144"
 snmpv2_ro_community: public
 
-email_contact: rado.mohyla@gmail.com
+email_contact: "rado.mohyla@gmail.com"
 
 clab-mgmt-network:
-  - 172.20.20.0/24
+  - "172.20.20.0/24"
 lan-mgmt-network:
-  - 192.168.100.0/24
+  - "192.168.100.0/24"
