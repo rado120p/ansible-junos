@@ -6,7 +6,7 @@ position: MPLS-PE
 lo0v4: "150.0.0.1"
 lo0v6: "2001:db8::1"
 iso_addr: "49.0001.0150.0001.0001.0001.00"
-isis_overlaod: False
+isis_overload: False
 device_lags: 2
 ibgp_peers:
   - name: RR1-LND
@@ -27,9 +27,9 @@ core-interfaces:
     lldp_enabled: True
     link_protection: "admin-group include-any CORE-0"
     igp_metric: 500
-    - admin_groups:
-      g1: CORE-0
-      g2: INTER-PLANE
+    admin_groups:
+      - "CORE-0"
+      - "INTER-PLANE"
   - name: ge-0/0/1
     description: "P1-LND;ge-0/0/1"
     ipv4_address: "10.100.10.2/31"
@@ -40,9 +40,8 @@ core-interfaces:
     lldp_enabled: True
     link_protection: "admin-group include-any CORE-0"
     igp_metric: 1000
-    - admin_groups:
-      g1: CORE-0
-  - name: ge-0/0/2
+    admin_groups:
+      - "CORE-0"
     description: "P1-LND;ge-0/0/1"
     ipv4_address: "10.100.10.2/31"
     ipv6_address: "2001:abcd:10b:a/64"
