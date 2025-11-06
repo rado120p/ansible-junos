@@ -3,11 +3,14 @@
 # CHASSIS
 # SECURITY
 # INTERFACES
+{% include 'vmx-interfaces.j2' +%}
 # SNMP
 # FORWARDING-OPTIONS
 # POLICY-OPTIONS
+{% include 'vmx-policy-options.j2' +%}
 # CLASS-OF-SERVICE
 # FIREWALL
 # ROUTING-OPTIONS
+{% include 'vmx-routing-options.j2' +%}
 # PROTOCOLS
 {% include 'vmx-protocols.j2' +%}
