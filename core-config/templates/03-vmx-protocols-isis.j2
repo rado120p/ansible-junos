@@ -7,13 +7,13 @@ set protocols isis reference-bandwidth 100g
 set protocols isis topologies ipv4-multicast
 set protocols isis topologies ipv6-unicast
 {% for interface in core_interfaces %}
-set protocols isis interface {{ interface['name'] }}.{{ interface['vlan_id'] }} ldp-synchronization
-set protocols isis interface {{ interface['name'] }}.{{ interface['vlan_id'] }} node-link-protection
-set protocols isis interface {{ interface['name'] }}.{{ interface['vlan_id'] }} point-to-point
-{% if interface['igp_metric'] %}
-set protocols isis interface {{ interface['name'] }}.{{ interface['vlan_id'] }} level 2 metric {{ interface['igp_metric'] }}
+set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }} ldp-synchronization
+set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}node-link-protection
+set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}point-to-point
+{% if interface.igp_metric %}
+set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}  level 2 metric {{ interface.igp_metric }}
 {% else %}
-set protocols isis interface {{ interface['name'] }}.{{ interface['vlan_id'] }} level 2 metric 99999
+set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}  level 2 metric 99999
 {% endif %}
 {% endfor %}
 {% if isis_overload %}
