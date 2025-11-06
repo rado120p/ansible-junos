@@ -10,7 +10,7 @@ set protocols isis topologies ipv6-unicast
 set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }} ldp-synchronization
 set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}node-link-protection
 set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}point-to-point
-{% if interface.igp_metric %}
+{% if interface.igp_metric is not none %}
 set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}  level 2 metric {{ interface.igp_metric }}
 {% else %}
 set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}  level 2 metric 99999
