@@ -2,7 +2,7 @@ set system name-server {{ name_server }}
 
 set system tacplus-server {{ tacacs_server }} source-address {{ ansible_host }}
 
-set system host-name {{ inventory['name'] }}
+set system host-name {{ inventory_name }}
 set system root-authentication encrypted-password "$6$dNQpRwR.$h1vuHiRNYjmGdbJi6zP37o7N88EJAiKMy2/.k0O/8DbCgF.aelK3.lRUzZszWBWmMDQ1qI2XRwpVOinJc33T80"
 set system login user admin uid 2000
 set system login user admin class super-user
