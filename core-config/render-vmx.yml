@@ -1,17 +1,19 @@
 ---
-- name: Render basic VMX configuration
+- name: Render VMX configs for all hosts
   hosts: VMX
   connection: local
   gather_facts: false
 
   tasks:
-    - name: Render VMX CFG
-      template:
+    - name: Ensure render/ exists on control node
+      ansible.builtin.file:
+        path: "{{ playbook_dir }}/render"
+        state: directory
+        mode: '0755'
+      run_once: true
+      delegate_to: localhost
+
+    - name: Render base VMX config for this host
+      ansible.builtin.template:
         src: "{{ playbook_dir }}/templates/vmx-template-full.j2"
         dest: "{{ playbook_dir }}/render/{{ inventory_hostname }}_basic.conf"
-#  - name: Render Qos CFG
-#    template:
-#      src: "{{ playbook_dir }}/templates/vmx-template-qos.j2"
-#      dst: "{{ playbook_dir }}/render/{{ inventory_hostname }}_qos.conf"
-
-
