@@ -22,7 +22,7 @@ core_interfaces:
     ipv4_address: "10.100.10.0/31"
     ipv6_address: "2001:abcd:10a::a/64"
     mtu: 9192
-    vlan-id: 100
+    vlan_id: 100
     filter_input_v4: ipv4-input-filter
     lldp_enabled: True
     link_protection: "admin-group include-any CORE-0"
@@ -35,7 +35,7 @@ core_interfaces:
     ipv4_address: "10.100.10.2/31"
     ipv6_address: "2001:abcd:10b:a/64"
     mtu: 9192
-    vlan-id: 100
+    vlan_id: 100
     filter_input_v4: ipv4-input-filter
     lldp_enabled: True
     link_protection: "admin-group include-any CORE-0"
@@ -47,7 +47,7 @@ core_interfaces:
     ipv4_address: "10.100.10.4/31"
     ipv6_address: "2001:abcd:10c:a/64"
     mtu: 9192
-    vlan-id: 100
+    vlan_id: 100
     filter_input_v4: ipv4-input-filter
     lldp_enabled: True
     link_protection: "admin-group include-any CORE-0"
