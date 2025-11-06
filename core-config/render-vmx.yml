@@ -1,6 +1,6 @@
 ---
 - name: Render basic VMX configuration
-  hosts: localhost
+  hosts: VMX
   connection: local
 
   tasks:
