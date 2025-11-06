@@ -42,9 +42,10 @@ core-interfaces:
     igp_metric: 1000
     admin_groups:
       - "CORE-0"
-    description: "P1-LND;ge-0/0/1"
-    ipv4_address: "10.100.10.2/31"
-    ipv6_address: "2001:abcd:10b:a/64"
+  - name: ge-0/0/2
+    description: "P2-LND;ge-0/0/1"
+    ipv4_address: "10.100.10.4/31"
+    ipv6_address: "2001:abcd:10c:a/64"
     mtu: 9192
     vlan-id: 100
     filter_input_v4: ipv4-input-filter
