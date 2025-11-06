@@ -8,13 +8,9 @@ set protocols isis topologies ipv4-multicast
 set protocols isis topologies ipv6-unicast
 {% for interface in core_interfaces %}
 set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }} ldp-synchronization
-set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}node-link-protection
-set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}point-to-point
-{% if interface.igp_metric %}
-set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}  level 2 metric {{ interface.igp_metric }}
-{% else %}
-set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }}  level 2 metric 99999
-{% endif %}
+set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }} node-link-protection
+set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }} point-to-point
+set protocols isis interface {{ interface.name }}.{{ interface.vlan_id }} level 2 metric {{ interface.igp_metric | default(99999) }}
 {% endfor %}
 {% if isis_overload %}
 set protocols isis overload
