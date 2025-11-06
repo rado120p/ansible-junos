@@ -9,5 +9,5 @@ snmpv2_ro_community: "public"
 
 email_contact: "rado.mohyla@gmail.com"
 
-clab-mgmt-network: "172.20.20.0/24"
-lan-mgmt-network: "192.168.100.0/24"
+clab_mgmt_network: "172.20.20.0/24"
+lan_mgmt_network: "192.168.100.0/24"
