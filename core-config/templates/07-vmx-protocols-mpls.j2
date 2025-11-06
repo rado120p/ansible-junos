@@ -5,7 +5,7 @@ set protocols mpls admin-groups INTER-PLANE 1
   {% if interface.admin_groups is defined -%}
     {%- for group in interface.admin_groups -%}
     set protocols mpls interface {{ interface.name }}.{{ interface.vlan_id }} admin-group {{ group }}
-    {% endfor -%}
+    {%- endfor %}
   {%- else %}
   set protocols mpls interface {{ interface.name }}.{{ interface.vlan_id }}
   {%- endif %}
