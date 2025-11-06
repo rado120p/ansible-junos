@@ -36,7 +36,7 @@ set system syslog console pfe none
 set system syslog routing-instance mgmt_junos
 set system archival configuration transfer-on-commit
 set system archival configuration routing-instance mgmt_junos
-set system archival configuration archive-sites "scp://rado@{{ archive_server }} /home/rado/Desktop/lab_config_archive/" password "$9$bywgJQz6u0IGDCuB1hcVws"
+set system archival configuration archive-sites "scp://rado@{{ archive_server }}/home/rado/Desktop/lab_config_archive/" password "$9$bywgJQz6u0IGDCuB1hcVws"
 set system ntp authentication-key 1 type md5
 set system ntp authentication-key 1 value "$9$8.jxVYg4ZiHmYg"
 set system ntp server {{ ntp_server }} version 3
