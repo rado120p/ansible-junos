@@ -1,0 +1,3 @@
+{% for interface in core-interfaces %}
+set protocols rsvp interface {{ interface['name']}}.{{ interface['vlan-id']}} link-protection
+{% endfor %}
