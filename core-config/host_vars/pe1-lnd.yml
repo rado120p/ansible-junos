@@ -16,7 +16,7 @@ ibgp_peers:
     ipv4_address: "150.0.0.254"
     ipv6_address: "2001:db8::ffff"
 
-core-interfaces:
+core_interfaces:
   - name: ge-0/0/0
     description: "PE2-LND;ge-0/0/0"
     ipv4_address: "10.100.10.0/31"

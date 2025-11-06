@@ -6,7 +6,7 @@ set protocols isis level 2 wide-metrics-only
 set protocols isis reference-bandwidth 100g
 set protocols isis topologies ipv4-multicast
 set protocols isis topologies ipv6-unicast
-{% for interface in core-interfaces %}
+{% for interface in core_interfaces %}
 set protocols isis interface {{ interface['name'] }}.{{ interface['vlan-id'}} ldp-synchronization
 set protocols isis interface {{ interface['name'] }}.{{ interface['vlan-id'}} node-link-protection
 set protocols isis interface {{ interface['name'] }}.{{ interface['vlan-id'}} point-to-point
