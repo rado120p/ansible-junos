@@ -2,3 +2,4 @@ set policy-options prefix-list bgp-inet-peers apply-path "protocols bgp group <*
 set policy-options prefix-list bgp-vpn-peers apply-path "routing-instances <*> protocols bgp group <*> neighbor <*>"
 set policy-options prefix-list mgmt-network {{ clab-mgmt-network }}
 set policy-options prefix-list mgmt-network {{ lan-mgmt-network }}
+set policy-options policy-statement load-balance then load-balance per-flow
