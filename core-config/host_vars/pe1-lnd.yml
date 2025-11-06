@@ -11,9 +11,9 @@ device_lags: 2
 ibgp_peers:
   - name: RR1-LND
     ipv4_address: "150.0.0.253"
-    ipv6_address: "2001:db8::ffff"
+    ipv6_address: "2001:db8::fffe"
   - name: RR2-LND
-    ipv4_address: "150.0.0.253"
+    ipv4_address: "150.0.0.254"
     ipv6_address: "2001:db8::ffff"
 
 core-interfaces:
