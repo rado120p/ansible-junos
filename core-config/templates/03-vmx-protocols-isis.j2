@@ -1,0 +1,21 @@
+set protocols isis interface lo0.0 passive
+set protocols isis level 1 disable
+set protocols isis level 2 authentication-key "$9$vM/8NbsYoUDkbs"
+set protocols isis level 2 authentication-type simple
+set protocols isis level 2 wide-metrics-only
+set protocols isis reference-bandwidth 100g
+set protocols isis topologies ipv4-multicast
+set protocols isis topologies ipv6-unicast
+{% for interface in core-interfaces %}
+set protocols isis interface {{ interface['name'] }}.{{ interface['vlan-id'}} ldp-synchronization
+set protocols isis interface {{ interface['name'] }}.{{ interface['vlan-id'}} node-link-protection
+set protocols isis interface {{ interface['name'] }}.{{ interface['vlan-id'}} point-to-point
+{% if interface['igp_metric'] %}
+set protocols isis interface {{ interface['name'] }}.{{ interface['vlan-id'}} level 2 metric {{ interface['igp_metric'] }}
+{% else %}
+set protocols isis interface {{ interface['name'] }}.{{ interface['vlan-id'}} level 2 metric 99999
+{% endif %}
+{% endfor %}
+{% if isis_overload %}
+set protocols isis overload
+{% endif %}
