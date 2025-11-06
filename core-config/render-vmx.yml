@@ -1,7 +1,7 @@
 ---
 - name: Render basic VMX configuration
   hosts: VMX
-  connection: netconf
+  connection: localhost
 
 tasks:
   - name: Render VMX CFG
