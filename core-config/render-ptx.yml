@@ -1,0 +1,11 @@
+---
+- name: Render PTX configs for all hosts
+  hosts: ptx
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Render base PTX config for this host
+      ansible.builtin.template:
+        src: "{{ playbook_dir }}/templates/ptx/ptx-template-full.j2"
+        dest: "{{ playbook_dir }}/render/{{ inventory_hostname }}_basic.conf"
