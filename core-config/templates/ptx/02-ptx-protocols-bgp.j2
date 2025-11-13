@@ -1,0 +1,31 @@
+set protocols bgp log-updown
+set protocols bgp path-selection always-compare-med
+set protocols bgp path-selection external-router-id
+set protocols bgp group ibgp-rr-v4 type internal
+set protocols bgp group ibgp-rr-v4 local-address {{ lo0v4 }}
+set protocols bgp group ibgp-rr-v4 mtu-discovery
+set protocols bgp group ibgp-rr-v4 family inet unicast add-path receive
+set protocols bgp group ibgp-rr-v4 family inet-vpn unicast
+set protocols bgp group ibgp-rr-v4 family evpn signaling
+set protocols bgp group ibgp-rr-v4 family inet-mvpn signaling
+set protocols bgp group ibgp-rr-v4 family route-target
+set protocols bgp group ibgp-rr-v4 authentication-key "$9$wN2JDiHmQz6Di"
+set protocols bgp group ibgp-rr-v4 multipath
+{% for peer in ibgp_peers %}
+set protocols bgp group ibgp-rr-v4 neighbor {{ peer['ipv4_address'] }} bfd-liveness-detection minimum-interval 250
+set protocols bgp group ibgp-rr-v4 neighbor {{ peer['ipv4_address'] }} bfd-liveness-detection multiplier 3
+{% endfor %}
+set protocols bgp group ibgp-rr-v6 type internal
+set protocols bgp group ibgp-rr-v6 local-address {{ lo0v6 }}
+set protocols bgp group ibgp-rr-v6 mtu-discovery
+set protocols bgp group ibgp-rr-v6 family inet6 unicast add-path receive
+set protocols bgp group ibgp-rr-v6 family inet6-vpn unicast
+set protocols bgp group ibgp-rr-v6 family evpn signaling
+set protocols bgp group ibgp-rr-v6 family inet-mvpn signaling
+set protocols bgp group ibgp-rr-v6 family route-target
+set protocols bgp group ibgp-rr-v6 authentication-key "$9$wN2JDiHmQz6Di"
+set protocols bgp group ibgp-rr-v6 multipath
+{% for peer in ibgp_peers %}
+set protocols bgp group ibgp-rr-v6 neighbor {{ peer['ipv6_address'] }} bfd-liveness-detection minimum-interval 250
+set protocols bgp group ibgp-rr-v6 neighbor {{ peer['ipv6_address'] }} bfd-liveness-detection multiplier 3
+{% endfor %}

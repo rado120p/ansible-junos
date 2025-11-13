@@ -1,0 +1,5 @@
+set protocols lldp port-id-subtype interface-name
+{% for interface in core_interfaces %}
+set protocols lldp interface {{ interface['name'] }}
+{% endfor %}
+

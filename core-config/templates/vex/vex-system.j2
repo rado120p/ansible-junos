@@ -1,0 +1,42 @@
+set system name-server {{ name_server }}
+set system tacplus-server {{ tacacs_server }} source-address {{ ansible_host }}
+set system host-name {{ inventory_hostname }}
+set system root-authentication encrypted-password "$6$dNQpRwR.$h1vuHiRNYjmGdbJi6zP37o7N88EJAiKMy2/.k0O/8DbCgF.aelK3.lRUzZszWBWmMDQ1qI2XRwpVOinJc33T80"
+set system login user admin uid 2000
+set system login user admin class super-user
+set system login user admin authentication encrypted-password "$6$gj/bw.Er$4vJ1lpAnXxhLtnClOcuK7csBIbaaHY13fCzQkEv72im02Bj810X/o3TpM9DxSpNNa1OXSwBzpsu8qr9Dtrn9I0"
+set system services netconf ssh
+set system services ssh root-login allow
+set system management-instance
+set system syslog user * any critical
+set system syslog host {{ syslog_server }} any notice
+set system syslog host {{ syslog_server }}authorization info
+set system syslog host {{ syslog_server }} interactive-commands any
+set system syslog host {{ syslog_server }} source-address {{ ansible_host }}
+set system syslog host {{ syslog_server }}structured-data
+set system syslog file config-changes change-log any
+set system syslog file config-changes archive size 1m
+set system syslog file config-changes archive files 5
+set system syslog file error-messages any error
+set system syslog file error-messages archive size 1m
+set system syslog file error-messages archive files 5
+set system syslog file error-messages explicit-priority
+set system syslog file interactive-commands interactive-commands any
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file messages archive size 1m
+set system syslog file messages archive files 15
+set system syslog console any error
+set system syslog console daemon none
+set system syslog console kernel none
+set system syslog console pfe none
+set system syslog routing-instance mgmt_junos
+set system archival configuration transfer-on-commit
+set system archival configuration routing-instance mgmt_junos
+set system archival configuration archive-sites "scp://rado@{{ archive_server }}/home/rado/Desktop/lab_config_archive/" password "$9$bywgJQz6u0IGDCuB1hcVws"
+set system ntp authentication-key 1 type md5
+set system ntp authentication-key 1 value "$9$8.jxVYg4ZiHmYg"
+set system ntp server {{ ntp_server }} version 3
+set system ntp server {{ ntp_server }} routing-instance mgmt_junos
+set system ntp trusted-key 1
+set system ntp source-address {{ ansible_host }}
