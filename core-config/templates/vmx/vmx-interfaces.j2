@@ -1,11 +1,12 @@
 set interfaces lo0 unit 0 family inet address {{ lo0v4 }}
 set interfaces lo0 unit 0 family inet filter input re-protect
 set interfaces lo0 unit 0 family inet6 address {{ lo0v6 }}
+set interfaces lo0 unit 0 family iso address {{ iso_addr }}
 {% for interface in core_interfaces %}
-set interfaces {{ interface['name'] }} description "{{ interface['description'] }}"
-set interfaces {{ interface['name'] }} mtu {{ interface['mtu'] }}
-set interfaces {{ interface['name'] }}.{{ interface['vlan_id'] }} description "{{ interface['description'] }}"
-set interfaces {{ interface['name'] }}.{{ interface['vlan_id'] }} vlan-id {{ interface['vlan_id'] }}
-set interfaces {{ interface['name'] }}.{{ interface['vlan_id'] }} family inet address {{ interface['ipv4_address'] }}
-set interfaces {{ interface['name'] }}.{{ interface['vlan_id'] }} family inet6 address {{ interface['ipv6_address'] }}
+set interfaces {{ interface.name }} description "{{ interface.description }}"
+set interfaces {{ interface.name }} mtu {{ interface.mtu }}
+set interfaces {{ interface.name }}.{{ interface.vlan_id }} description "{{ interface.description }}"
+set interfaces {{ interface.name }}.{{ interface.vlan_id }} vlan-id {{ interface.vlan_id }}
+set interfaces {{ interface.name }}.{{ interface.vlan_id }} family inet address {{ interface.ipv4_address }}
+set interfaces {{ interface.name }}.{{ interface.vlan_id }} family inet6 address {{ interface.ipv6_address }}
 {% endfor %}
