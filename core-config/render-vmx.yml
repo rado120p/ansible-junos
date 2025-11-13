@@ -7,5 +7,5 @@
   tasks:
     - name: Render base VMX config for this host
       ansible.builtin.template:
-        src: "{{ playbook_dir }}/templates/vmx-template-full.j2"
+        src: "{{ playbook_dir }}/templates/vmx/vmx-template-full.j2"
         dest: "{{ playbook_dir }}/render/{{ inventory_hostname }}_basic.conf"
