@@ -1,0 +1,11 @@
+---
+- name: Render vEX configs for all hosts
+  hosts: vex
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Render base vEX config for this host
+      ansible.builtin.template:
+        src: "{{ playbook_dir }}/templates/vex/vex-template-full.j2"
+        dest: "{{ playbook_dir }}/render/{{ inventory_hostname }}_basic.conf"
