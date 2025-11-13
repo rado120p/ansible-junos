@@ -12,8 +12,8 @@ set protocols bgp group ibgp-rr-v4 family route-target
 set protocols bgp group ibgp-rr-v4 authentication-key "$9$wN2JDiHmQz6Di"
 set protocols bgp group ibgp-rr-v4 multipath
 {% for peer in ibgp_peers %}
-set protocols bgp group ibgp-rr-v4 neighbor {{ peer['ipv4_address'] }} bfd-liveness-detection minimum-interval 250
-set protocols bgp group ibgp-rr-v4 neighbor {{ peer['ipv4_address'] }} bfd-liveness-detection multiplier 3
+set protocols bgp group ibgp-rr-v4 neighbor {{ peer.ipv4_address }} bfd-liveness-detection minimum-interval 250
+set protocols bgp group ibgp-rr-v4 neighbor {{ peer.ipv4_address }} bfd-liveness-detection multiplier 3
 {% endfor %}
 set protocols bgp group ibgp-rr-v6 type internal
 set protocols bgp group ibgp-rr-v6 local-address {{ lo0v6 }}
@@ -26,6 +26,6 @@ set protocols bgp group ibgp-rr-v6 family route-target
 set protocols bgp group ibgp-rr-v6 authentication-key "$9$wN2JDiHmQz6Di"
 set protocols bgp group ibgp-rr-v6 multipath
 {% for peer in ibgp_peers %}
-set protocols bgp group ibgp-rr-v6 neighbor {{ peer['ipv6_address'] }} bfd-liveness-detection minimum-interval 250
-set protocols bgp group ibgp-rr-v6 neighbor {{ peer['ipv6_address'] }} bfd-liveness-detection multiplier 3
+set protocols bgp group ibgp-rr-v6 neighbor {{ peer.ipv6_address }} bfd-liveness-detection minimum-interval 250
+set protocols bgp group ibgp-rr-v6 neighbor {{ peer.ipv6_address }} bfd-liveness-detection multiplier 3
 {% endfor %}
